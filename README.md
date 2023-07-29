@@ -13,11 +13,11 @@ Up to 8 SSD1306 128x64pixel OLED displays are supported (Nano; 6 for Uno), with 
 ## Uploading Binaries (.hex)
 I'm keeping the source code private for now for various reasons, so you will be flashing the releases as a pre-compiled binary directly onto the device. The easiest way to do this is Xloader. (https://github.com/binaryupdates/xLoader)
 
-![image](https://github.com/treyus30/HT-101CBR/assets/136277393/8c89f1f1-d301-4bb2-b1d2-b6094aa9fa6a)
+![image](https://github.com/treyus30/HT-101CBR/assets/136277393/461253f2-5f9f-4130-843d-aaec86dda0bb)
 
 Save the zip file somewhere accessible, run Xloader.exe, and select the correct device and Hex file. 
 
-![image](https://github.com/treyus30/HT-101CBR/assets/136277393/679bda4d-403e-430c-8365-6190dd08b5be)
+![image](https://github.com/treyus30/HT-101CBR/assets/136277393/adf06e8c-4121-4211-802e-b4623bbf302f)
 
 Make sure your Arduino is plugged in, and COM port is known and set. Then click Upload. 
 
@@ -34,13 +34,14 @@ Make sure your Arduino is plugged in, and COM port is known and set. Then click 
 **Optional:**
 - DTM06-4S (female) connector set (for connecting directly into Haltech CAN port). You can find knockoff kits for reasonable prices on Amazon.
 
-![image](https://github.com/treyus30/HT-101CBR/assets/136277393/eabb3ddf-1e83-4671-af30-2ccc8925f393)
+![image](https://github.com/treyus30/HT-101CBR/assets/136277393/64dd7140-89de-436d-ac0f-f3dddb5633d8)
 
 
 ## Wiring
-![image](https://github.com/treyus30/HT-101CBR/assets/136277393/8763e77f-8e93-4969-9150-53df4368d10b)
+![image](https://github.com/treyus30/HT-101CBR/assets/136277393/f193cb99-d602-4b6f-9f1d-fdcd29ef7cde)
 
-![image](https://github.com/treyus30/HT-101CBR/assets/136277393/28058247-4e99-4d89-bd72-d304ec4466d6)
+![image](https://github.com/treyus30/HT-101CBR/assets/136277393/7e3e6e5f-cf13-4c77-99e8-f6e3c9581b88)
+
 
 # Example
 https://www.youtube.com/watch?v=qoIh3fBZvfI
