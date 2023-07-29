@@ -50,6 +50,13 @@ https://www.youtube.com/watch?v=qoIh3fBZvfI
 
 ---
 
+## Donate
+This has taken a lot of my time and I will receive minimal reward. If you think it's worth it, consider sparing some change :) <br>
+<a href ="https://tcarpenterprises.square.site/product/help-support-my-work-tip-me/1?cs=true&cst=popular">Square</a><br>
+<a href ="https://paypal.me/TCarpEnterprises?country.x=US&locale.x=en_US">PayPal</a>
+
+---
+
 ## License
 This work is licensed under a `Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License`.
 This work is free to redistribute for personal, non-commercial use. Any modifications performed are not licensed for redistribution. 
