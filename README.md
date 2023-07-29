@@ -1,6 +1,15 @@
 # HT-101CBR
+## Overview
+**What is this, exactly, and why?**
+The Haltech 101 CAN Bridge is a DIY solution to circumvent the expense of gauge and dash displays offered by Haltech themselves (and some others) which merely display data that the vehicle's Haltech ECU already stores. Haltech uses proprietary CAN protocols for its family of devices, but some of these sensors' IDs and data/units have been cracked, and we can read them. Haltech does support OBD-II based CAN, but because only their higher-end ECUs like the Elite 2500 have 2 ports, this leaves lesser models like the 750s and similar stranded if they need their single port for something like a wideband O2 sensor module. Furthermore, OBD-II is limited in it's status reporting and Haltech's list of supported sensors is fairly small at the moment, though it does provide a majority of the important ones. 
+
+This project seeks to enable reading of this proprietary set of standards, and allow the end-user to display this data very inexpensively in a highly readable, rapid manner. Further development will seek to expand the CANbus to the OBD-II port and support industry standard reporting so that devices like the ELM327 (common bluetooth/wifi OBDII readers) can read statuses just like any other vehicle.
+
+The program is built on ATmega328 platform, mainly the Arduino Nano, though it should work without any port work with the Uno as well. The code is optimized for extremely fast display updating over hardware SPI, utilizing a codeblock to breakout numbers into indidivual digits, then compare these digits to the last digits recorded for a given CAN reading, to only update characters that change from one loop to the next. 
+
+Up to 8 SSD1306 128x64pixel OLED displays are supported (Nano; 6 for Uno), with their Chip Select (CS) pins being the 8 analog pins, A0 - A7. 
+
 ## Uploading Binaries (.hex)
-This program is built on ATmega328 platform, mainly the Arduino Nano, though it should work without any port work with the Uno as well. 
 I'm keeping the source code private for now for various reasons, so you will be flashing the releases as a pre-compiled binary directly onto the device. The easiest way to do this is Xloader. (https://github.com/binaryupdates/xLoader)
 
 ![image](https://github.com/treyus30/HT-101CBR/assets/136277393/8c89f1f1-d301-4bb2-b1d2-b6094aa9fa6a)
@@ -12,15 +21,14 @@ Save the zip file somewhere accessible, run Xloader.exe, and select the correct 
 Make sure your Arduino is plugged in, and COM port is known and set. Then click Upload. 
 
 ## Parts & Pre-reqs
-The code is optimized for extremely fast display updating over hardware SPI, utilizing a codeblock to breakout numbers into indidivual digits, then compare these digits to the last digits recorded for a given CAN reading. 
-Up to 8 SSD1306 128x64pixel OLED displays are supported, with their Chip Select (CS) pins being the 8 analog pins, A0 - A7. 
 
 **Required:**
 - Arduino Nano or Uno (authentic or clone).
-- 1-8x SSD1306 monochrome 128x64 OLED displays.
+- 1-8x SSD1306 monochrome 128x64 OLED displays. **Note that the Uno is missing Pins A6 and A7, so is limited to 6 displays. 
 - 1x MCP2515 CAN Transceiver Module (make sure this is the full board, as pictured below).
 - Some method of wiring.
-- Some method of splitting connections. I recommend covered, low-amp screw terminal blocks. 
+- Some method of splitting connections. I recommend covered, low-amp screw terminal blocks.
+- Laptop with USB port & **Mini** (for Nano) or **2.0 Type B** (for Uno) USB cable. 
   
 **Optional:**
 - DTM06-4S (female) connector set (for connecting directly into Haltech CAN port). You can find knockoff kits for reasonable prices on Amazon.
@@ -35,6 +43,8 @@ Up to 8 SSD1306 128x64pixel OLED displays are supported, with their Chip Select 
 
 # Example
 https://www.youtube.com/watch?v=qoIh3fBZvfI
+
+**See "MANUAL....xlsx" file in repository for user commands. You will need the Arduino IDE, or some other way of communicating via the hardware Serial to set up your initial sensors and preferences.**
 
 ---
 
