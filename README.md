@@ -25,7 +25,7 @@ Make sure your Arduino is plugged in, and COM port is known and set. Then click 
 
 **Required:**
 - Arduino Nano or Uno (authentic or clone).
-- 1-8x SSD1306 monochrome 128x64 OLED displays. **Note that the Uno is missing Pins A6 and A7, so is limited to 6 displays. 
+- 1-8x SSD1306 monochrome **SPI** 128x64 OLED displays. **Note that the Uno is missing Pins A6 and A7, so is limited to 6 displays. **These must be 7-pin SPI displays. Do NOT get the 4-pin I2C version.**
 - 1x MCP2515 CAN Transceiver Module (make sure this is the full board, as pictured below).
 - Some method of wiring.
 - Some method of splitting connections. I recommend covered, low-amp screw terminal blocks.
