@@ -15,12 +15,26 @@ Make sure your Arduino is plugged in, and COM port is known and set. Then click 
 The code is optimized for extremely fast display updating over hardware SPI, utilizing a codeblock to breakout numbers into indidivual digits, then compare these digits to the last digits recorded for a given CAN reading. 
 Up to 8 SSD1306 128x64pixel OLED displays are supported, with their Chip Select (CS) pins being the 8 analog pins, A0 - A7. 
 
+**Required:**
+- Arduino Nano or Uno (authentic or clone).
+- 1-8x SSD1306 monochrome 128x64 OLED displays.
+- 1x MCP2515 CAN Transceiver Module (make sure this is the full board, as pictured below).
+- Some method of wiring.
+- Some method of splitting connections. I recommend covered, low-amp screw terminal blocks. 
+  
+**Optional:**
+- DTM06-4S (female) connector set (for connecting directly into Haltech CAN port). You can find knockoff kits for reasonable prices on Amazon.
+
+![image](https://github.com/treyus30/HT-101CBR/assets/136277393/eabb3ddf-1e83-4671-af30-2ccc8925f393)
+
+
 ## Wiring
 ![image](https://github.com/treyus30/HT-101CBR/assets/136277393/8763e77f-8e93-4969-9150-53df4368d10b)
 
 ![image](https://github.com/treyus30/HT-101CBR/assets/136277393/28058247-4e99-4d89-bd72-d304ec4466d6)
 
-
+# Example
+https://www.youtube.com/watch?v=qoIh3fBZvfI
 
 ---
 
