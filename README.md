@@ -42,6 +42,29 @@ Make sure your Arduino is plugged in, and COM port is known and set. Then click 
 
 ![image](https://github.com/treyus30/HT-101CBR/assets/136277393/7e3e6e5f-cf13-4c77-99e8-f6e3c9581b88)
 
+## Supported Sensors
+The following is what has been uncovered by FTY Racing and currently implemented as options. If more are decoded separately, I will asterisk them. If you can add to this list, please create a discussion and include the CAN ID, byte(s), and name.
+- Engine RPM
+- MAP
+- TPS
+- Fuel Pressure
+- Oil Pressure
+- Injector Duty Cycles
+- Ignition Angles
+- Lambdas
+- Miss, Trigger, and Home Counter
+- Vehicle Speed
+- Gear
+- Intake Cam Angles
+- Battery Voltage
+- Target Boost
+- Barometer
+- CTS
+- IAT
+- Fuel Temp
+- Oil Temp
+- Fuel Consumption (/hr)
+- Avg Fuel Economy (/hr)
 
 # Example
 https://www.youtube.com/watch?v=qoIh3fBZvfI
