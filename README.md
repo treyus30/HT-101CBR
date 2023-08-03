@@ -35,7 +35,8 @@ Make sure your Arduino is plugged in, and COM port is known and set. Then click 
 - DTM06-4S (female) connector set (for connecting directly into Haltech CAN port). You can find knockoff kits for reasonable prices on Amazon.
 - 16PIN J1962F OBD-II Female pigtail (for gaining access to the new CANbus over OBDII). This will become more relevant in the future. ~$12 on Amazon. 
 
-![image](https://github.com/treyus30/HT-101CBR/assets/136277393/64dd7140-89de-436d-ac0f-f3dddb5633d8)
+![image](https://github.com/treyus30/HT-101CBR/assets/136277393/64dd7140-89de-436d-ac0f-f3dddb5633d8) ![Capture](https://github.com/treyus30/HT-101CBR/assets/136277393/be5876b0-9810-407e-9b40-d968fcf0984e)
+
 
 
 ## Wiring
