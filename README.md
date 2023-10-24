@@ -1,5 +1,11 @@
 # HT-101CBR
-**NOTE: This project is currently early stages and meant for a small selection of members in external contact with me. _Please do not expect a response if you have not previously contacted me on another platform._ Thank you.**
+**NOTE: This project is currently early stages and meant for a small selection of members in external contact with me. If you'd like to help with testing/early access hardware packages, DM me on TacomaWorld @treyus30. **
+#Announcement
+Haltech has recently made _all_ CAN IDs and datatypes Public! This has increased the available "sensor" data from around 30 types, to over 250, thus prompting a complete re-write of this program! 
+I have decided to take a very different approach and use a shift-register basis of updating displays, which means that display quantities will now be loosely capped at 32 instead of 8, and Analog Pins 0-7 will be reserved for future implementation of external sensor inputs, increasing the effective pins of your Haltech ECU!
+
+Work has progressed slowly, as this is one of many facets of my life, but I have recently finished prototyping a 2x2 OLED plug-and-play PCB with the mentioned shift register logic. Parts are currently processing overseas and should be ready before 2024 for testing. I plan on releasing DIY and pre-assembled kits for purchase in conjunction with the new free-to-share binaries. Up to v0.16 will use the old Analog Chip Select method, and going forward will require at least one SN74HC595N IC (~$1.50) in addition to the previous hardware requirements. I think this will be a highly beneficial trade-off in the future. 
+
 ## Overview
 **What is this, exactly, and why?**
 The Haltech 101 CAN Bridge is a DIY solution to circumvent the expense of gauge and dash displays offered by Haltech themselves (and some others) which merely display data that the vehicle's Haltech ECU already stores. Haltech uses proprietary CAN protocols for its family of devices, but some of these sensors' IDs and data/units have been cracked, and we can read them. Haltech does support OBD-II based CAN, but because only their higher-end ECUs like the Elite 2500 have 2 ports, this leaves lesser models like the 750s and similar stranded if they need their single port for something like a wideband O2 sensor module. Furthermore, OBD-II is limited in it's status reporting and Haltech's list of supported sensors is fairly small at the moment, though it does provide a majority of the important ones. 
