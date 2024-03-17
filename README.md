@@ -1,4 +1,4 @@
-# HT-101CBR
+# HT-101CBR (Free Version)
 **NOTE: This project is currently early stages and meant for a small selection of members in external contact with me. If you'd like to help with testing/early access hardware packages, DM me on TacomaWorld @treyus30. **
 
 ![PXL_20230817_182119066~3](https://github.com/treyus30/HT-101CBR/assets/136277393/47412e7d-a376-46a8-88b0-59214c891d1a)
