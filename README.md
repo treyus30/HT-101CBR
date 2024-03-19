@@ -3,7 +3,7 @@
 Example setup:
 
 ![PXL_20230817_182119066~3](https://github.com/treyus30/HT-101CBR/assets/136277393/47412e7d-a376-46a8-88b0-59214c891d1a)
-NOTE: This project is currently early stages and meant for a small selection of members in external contact with me. If you'd like to help with testing/early access hardware packages, DM me on TacomaWorld @treyus30. **
+NOTE: This project is currently early stages and meant for members in direct contact with me. If you'd like to help with testing/early access hardware packages, DM me on TacomaWorld @treyus30. **
 
 # Announcement 3/18/2024
 Primary codebase (Full Version) is rebuilt to support:
@@ -31,7 +31,7 @@ Free Version code will be cleaned up and released once Full Version is completed
 Haltech has recently made _all_ CAN IDs and datatypes Public! This has increased the available "sensor" data from around 30 types, to over 250, thus prompting a complete re-write of this program! 
 I have decided to take a very different approach and use a shift-register basis of updating displays, which means that display quantities will now be loosely capped at 32 instead of 8, and Analog Pins 0-7 will be reserved for future implementation of external sensor inputs, increasing the effective pins of your Haltech ECU!
 
-Work has progressed slowly, as this is one of many facets of my life, but I have recently finished prototyping a 2x2 OLED plug-and-play PCB with the mentioned shift register logic. Parts are currently processing overseas and should be ready before 2024 for testing. I plan on releasing DIY and pre-assembled kits for purchase in conjunction with the new free-to-share binaries. Up to v0.16 will use the old Analog Chip Select method, and going forward will require at least one SN74HC595N IC (~$1.50) in addition to the previous hardware requirements. I think this will be a highly beneficial trade-off in the future. 
+Work has progressed slowly, as this is one of many facets of my life, but I have recently finished prototyping a 2x2 OLED plug-and-play PCB using analog out pins (not shift register). Parts are currently processing overseas and should be ready before 2024 for testing. I plan on releasing DIY and pre-assembled kits for purchase in conjunction with the new free-to-share binaries. Up to v0.16 will use the old Analog Chip Select method, and going forward will require at least one SN74HC595N IC (~$1.50) in addition to the previous hardware requirements. I think this will be a highly beneficial trade-off in the future. 
 
 ## Overview/Summary
 **What is this, exactly, and why?**
