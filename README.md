@@ -1,6 +1,7 @@
 # HT-101CBR (Free Version)
-For Full Version that supports all sensors, click here: https://github.com/T-Carpenter-Enterpises/HT-101CBR_Full-Access. (coming soon)
+For Full Version that supports all sensors and access to Free Version source code, click here (donationware): https://github.com/T-Carpenter-Enterpises/HT-101CBR_Full-Access. (coming soon)
 
+Full version requires one more part that costs $1 for over 8 displays, per 8 displays, up to 32 ($4).
 
 ## Overview/Summary
 **The Goal: Build the absolute lowest-cost Haltech Elite display possible with as many sensor options as possible.** 
@@ -36,7 +37,7 @@ Make sure your Arduino is plugged in, and COM port is known and set. Then click 
 **Required:**
 - 1x Arduino Nano or Uno (authentic or clone).
   - Note that the Uno is missing Pins A6 and A7, so is limited to 6 displays.
-- 1 to 8x SSD1306 monochrome **SPI** 128x64 OLED displays.
+- 1 to 8x SSD1306 (0.96") or SSD1309 (2.42") monochrome **SPI** 128x64 OLED displays.
   - These must be 7-pin SPI displays, _not_ 4-pin I2C version.**
 - 1x MCP2515 CAN Transceiver Module (make sure this is the full board, as pictured below).
 - Soldering iron & solder
