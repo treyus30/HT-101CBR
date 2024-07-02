@@ -1,36 +1,34 @@
 # HT-101CBR (Free Version)
 For Full Version that supports all sensors and access to Free Version source code, click here (donationware): https://github.com/T-Carpenter-Enterpises/HT-101CBR_Full-Access. (coming soon)
 
-Full version requires one more part that costs $1 for over 8 displays, per 8 displays, up to 32 ($4).
+A Deluxe Version is a long-term goal that will enable J1979 OBDII PID reporting, including emissions readiness emulation, and analog/digial _Inputs_ on the CAN rail back into the Haltech ECU. 
 
 ## Overview/Summary
 **The Goal: Build the absolute lowest-cost Haltech Elite display possible with as many sensor options as possible.** 
 
 Required parts can all be acquired for less than $10 USD!
 
-The Haltech 101 CAN Bridge is a DIY solution to circumvent the expense of gauge and dash displays offered by Haltech themselves (and some others) which merely display data that the vehicle's Haltech ECU already stores. Haltech uses proprietary CAN protocols for its family of devices, but some of these sensors' IDs and data/units have been cracked (now fully released by Haltech), and we can read them. Haltech does support OBD-II based CAN, but because only their higher-end ECUs like the Elite 2500 have 2 ports, this leaves lesser models like the 750s and similar stranded if they need their single port for something like a wideband O2 sensor module. Furthermore, OBD-II is limited in it's status reporting and Haltech's list of supported sensors is fairly small at the moment, though it does provide a majority of the important ones. 
+The Haltech 101 CAN Bridge is a DIY solution to circumvent the expense of gauge and dash displays offered by Haltech (and some others) which merely display data that the vehicle's Haltech ECU already stores. Haltech uses proprietary CAN protocols for its family of devices, but some of these sensors' IDs and data/units have been cracked (now fully released by Haltech), and we can read them. 
 
-This project seeks to enable reading of this proprietary set of standards, and allow the end-user to display this data very inexpensively in a highly readable, rapid manner. Further development will seek to expand the CANbus to the OBD-II port and support industry standard reporting so that devices like the ELM327 (common bluetooth/wifi OBDII readers) can read statuses just like any other vehicle.
+Haltech does support OBD-II based CAN, but because only their higher-end ECUs like the Elite 2500 have 2 ports, this leaves lesser models like the 750s and similar stranded if they need their single port for something dedicated. Furthermore, the HT OBD-II is limited in its status reporting.
 
 The program is built on ATmega328 platform, mainly the Arduino Nano, though it should work without any port work with the Uno as well. The code is optimized for extremely fast display updating over hardware SPI, utilizing a codeblock to breakout numbers into indidivual digits, then compare these digits to the last digits recorded for a given CAN reading, to only update characters that change from one loop to the next. 
 
-Up to 8 SSD1306 or SSD1309 128x64pixel OLED displays are supported (Nano; 6 for Uno), with their Chip Select (CS) pins being the 8 analog pins, A0 - A7. 
+Up to 8x SSD1306 or SSD1309 128x64pixel OLED displays are supported (6 for Uno), with their Chip Select (CS) pins being the 8 analog pins, A0 - A7. 
 
 Example setup:
 
 ![PXL_20230817_182119066~3](https://github.com/treyus30/HT-101CBR/assets/136277393/47412e7d-a376-46a8-88b0-59214c891d1a)
 
-## Uploading Binaries (.hex)
-I'm keeping the source code private for now for various reasons, so you will be flashing the releases as a pre-compiled binary directly onto the device. The easiest way to do this is Xloader. (https://github.com/binaryupdates/xLoader)
+Proof of concept: https://www.youtube.com/watch?v=qoIh3fBZvfI
 
-![image](https://github.com/treyus30/HT-101CBR/assets/136277393/461253f2-5f9f-4130-843d-aaec86dda0bb)
+## Donate
+Donations greatly appreciated if my work saved you time or money :)  
 
-Save the zip file somewhere accessible, run Xloader.exe, and select the correct device and Hex file. 
-
-![upload_2024-6-22_11-15-22](https://github.com/treyus30/HT-101CBR/assets/136277393/dca7e9a7-5549-4163-ad71-19c2e6b201c3)
+<a href ="https://paypal.me/TCarpEnterprises?country.x=US&locale.x=en_US">![PayPal-Donate-Button-Download-PNG-1403448781](https://github.com/treyus30/HT-101CBR/assets/136277393/137c5a8d-a726-4e98-8de9-1123748c9d18)</a>
 
 
-Make sure your Arduino is plugged in, and COM port is known and set. Then click Upload. 
+# Guide
 
 ## Parts & Pre-requisites
 
@@ -52,6 +50,17 @@ Make sure your Arduino is plugged in, and COM port is known and set. Then click 
 
 ![image](https://github.com/treyus30/HT-101CBR/assets/136277393/64dd7140-89de-436d-ac0f-f3dddb5633d8) 
 
+## Uploading Binaries (.hex)
+You will be flashing the releases as a pre-compiled binary directly onto the device. The easiest way to do this is <a href ="https://github.com/binaryupdates/xLoader"> Xloader</a>.
+
+![image](https://github.com/treyus30/HT-101CBR/assets/136277393/461253f2-5f9f-4130-843d-aaec86dda0bb)
+
+Save the zip file somewhere accessible, run Xloader.exe, and select the correct device and Hex file. 
+
+![upload_2024-6-22_11-15-22](https://github.com/treyus30/HT-101CBR/assets/136277393/dca7e9a7-5549-4163-ad71-19c2e6b201c3)
+
+
+Make sure your Arduino is plugged in, and COM port is known and set. Then click Upload. 
 
 ## Example Wiring (Free/Legacy Version)
 ![image](https://github.com/treyus30/HT-101CBR/assets/136277393/f193cb99-d602-4b6f-9f1d-fdcd29ef7cde)
@@ -84,8 +93,6 @@ The following is what is currently available in the latest versions. If you wish
 - Fuel Consumption (/hr)
 - Avg Fuel Economy (/hr)
 
-# Proof of Concept
-https://www.youtube.com/watch?v=qoIh3fBZvfI
 
 **See "MANUAL....xlsx" file in repository for user commands, and to change default sensors and units.** 
 
@@ -117,13 +124,6 @@ I have decided to take a very different approach and use a shift-register basis 
 
 Work has progressed slowly, as this is one of many facets of my life, but I have recently finished prototyping a 2x2 OLED plug-and-play PCB using analog out pins (not shift register). Parts are currently processing overseas and should be ready before 2024 for testing. I plan on releasing DIY and pre-assembled kits for purchase in conjunction with the new free-to-share binaries. Up to v0.16 will use the old Analog Chip Select method, and going forward will require at least one SN74HC595N IC (~$1.50) in addition to the previous hardware requirements. I think this will be a highly beneficial trade-off in the future. 
 
-
----
-
-## Donate
-This has taken a lot of my time and I will receive minimal reward. If you think it's worth it, consider sparing some change :) <br> There will soon be a sponsor option to support and gain access to advanced versions. 
-<a href ="https://tcarpenterprises.square.site/product/help-support-my-work-tip-me/1?cs=true&cst=popular">Square</a><br>
-<a href ="https://paypal.me/TCarpEnterprises?country.x=US&locale.x=en_US">PayPal</a>
 
 ---
 
