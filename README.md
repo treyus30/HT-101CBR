@@ -1,9 +1,92 @@
 # HT-101CBR (Free Version)
+For Full Version that supports all sensors, click here: https://github.com/T-Carpenter-Enterpises/HT-101CBR_Full-Access. (coming soon)
+
+
+## Overview/Summary
+**The Goal: Build the absolute lowest-cost Haltech Elite display possible with as many sensor options as possible.** 
+
+Required parts can all be acquired for less than $10 USD!
+
+The Haltech 101 CAN Bridge is a DIY solution to circumvent the expense of gauge and dash displays offered by Haltech themselves (and some others) which merely display data that the vehicle's Haltech ECU already stores. Haltech uses proprietary CAN protocols for its family of devices, but some of these sensors' IDs and data/units have been cracked (now fully released by Haltech), and we can read them. Haltech does support OBD-II based CAN, but because only their higher-end ECUs like the Elite 2500 have 2 ports, this leaves lesser models like the 750s and similar stranded if they need their single port for something like a wideband O2 sensor module. Furthermore, OBD-II is limited in it's status reporting and Haltech's list of supported sensors is fairly small at the moment, though it does provide a majority of the important ones. 
+
+This project seeks to enable reading of this proprietary set of standards, and allow the end-user to display this data very inexpensively in a highly readable, rapid manner. Further development will seek to expand the CANbus to the OBD-II port and support industry standard reporting so that devices like the ELM327 (common bluetooth/wifi OBDII readers) can read statuses just like any other vehicle.
+
+The program is built on ATmega328 platform, mainly the Arduino Nano, though it should work without any port work with the Uno as well. The code is optimized for extremely fast display updating over hardware SPI, utilizing a codeblock to breakout numbers into indidivual digits, then compare these digits to the last digits recorded for a given CAN reading, to only update characters that change from one loop to the next. 
+
+Up to 8 SSD1306 or SSD1309 128x64pixel OLED displays are supported (Nano; 6 for Uno), with their Chip Select (CS) pins being the 8 analog pins, A0 - A7. 
 
 Example setup:
 
 ![PXL_20230817_182119066~3](https://github.com/treyus30/HT-101CBR/assets/136277393/47412e7d-a376-46a8-88b0-59214c891d1a)
-NOTE: This project is currently early stages and meant for members in direct contact with me. If you'd like to help with testing/early access hardware packages, DM me on TacomaWorld @treyus30. **
+
+## Uploading Binaries (.hex)
+I'm keeping the source code private for now for various reasons, so you will be flashing the releases as a pre-compiled binary directly onto the device. The easiest way to do this is Xloader. (https://github.com/binaryupdates/xLoader)
+
+![image](https://github.com/treyus30/HT-101CBR/assets/136277393/461253f2-5f9f-4130-843d-aaec86dda0bb)
+
+Save the zip file somewhere accessible, run Xloader.exe, and select the correct device and Hex file. 
+
+![upload_2024-6-22_11-15-22](https://github.com/treyus30/HT-101CBR/assets/136277393/dca7e9a7-5549-4163-ad71-19c2e6b201c3)
+
+
+Make sure your Arduino is plugged in, and COM port is known and set. Then click Upload. 
+
+## Parts & Pre-requisites
+
+**Required:**
+- 1x Arduino Nano or Uno (authentic or clone).
+  - Note that the Uno is missing Pins A6 and A7, so is limited to 6 displays.
+- 1 to 8x SSD1306 monochrome **SPI** 128x64 OLED displays.
+  - These must be 7-pin SPI displays, _not_ 4-pin I2C version.**
+- 1x MCP2515 CAN Transceiver Module (make sure this is the full board, as pictured below).
+- Soldering iron & solder
+- Low gauge wires 
+- PC & USB cable
+  - Many clones will come with relevant cables. USB-C has also been seen popping up. As long as you can connect to a PC you're fine.  
+  
+**Recommended:**
+- DTM06-4S (female) connector set (for connecting directly into Haltech CAN port which also supplies +12V). You can find knockoff kits for reasonable prices on Amazon.
+- PCB/protoboard Jumper wires
+- Arduino IDE (or some other way of transmitting commands to Arduino Serial)
+
+![image](https://github.com/treyus30/HT-101CBR/assets/136277393/64dd7140-89de-436d-ac0f-f3dddb5633d8) 
+
+
+## Example Wiring (Free/Legacy Version)
+![image](https://github.com/treyus30/HT-101CBR/assets/136277393/f193cb99-d602-4b6f-9f1d-fdcd29ef7cde)
+
+![image](https://github.com/treyus30/HT-101CBR/assets/136277393/7e3e6e5f-cf13-4c77-99e8-f6e3c9581b88)
+
+*Word of caution: SPI is an unbalanced protocol (not differential pair). Keep SPI CLK and DATA wires, especially, away from stray capacitance and other wires. 
+
+## Supported Sensors
+The following is what is currently available in the latest versions. If you wish to have access to ALL 250+ sensors that are Haltech-supported, please refer to "Announcement 3-18-2024". 
+- Engine RPM
+- MAP
+- TPS
+- Fuel Pressure
+- Oil Pressure
+- Injector Duty Cycles
+- Ignition Angles
+- Lambdas
+- Miss, Trigger, and Home Counter
+- Vehicle Speed
+- Gear
+- Intake Cam Angles
+- Battery Voltage
+- Target Boost
+- Barometer
+- CTS
+- IAT
+- Fuel Temp
+- Oil Temp
+- Fuel Consumption (/hr)
+- Avg Fuel Economy (/hr)
+
+# Proof of Concept
+https://www.youtube.com/watch?v=qoIh3fBZvfI
+
+**See "MANUAL....xlsx" file in repository for user commands, and to change default sensors and units.** 
 
 # Announcement 3/18/2024
 Primary codebase (Full Version) is rebuilt to support:
@@ -33,82 +116,6 @@ I have decided to take a very different approach and use a shift-register basis 
 
 Work has progressed slowly, as this is one of many facets of my life, but I have recently finished prototyping a 2x2 OLED plug-and-play PCB using analog out pins (not shift register). Parts are currently processing overseas and should be ready before 2024 for testing. I plan on releasing DIY and pre-assembled kits for purchase in conjunction with the new free-to-share binaries. Up to v0.16 will use the old Analog Chip Select method, and going forward will require at least one SN74HC595N IC (~$1.50) in addition to the previous hardware requirements. I think this will be a highly beneficial trade-off in the future. 
 
-## Overview/Summary
-**What is this, exactly, and why?**
-The Haltech 101 CAN Bridge is a DIY solution to circumvent the expense of gauge and dash displays offered by Haltech themselves (and some others) which merely display data that the vehicle's Haltech ECU already stores. Haltech uses proprietary CAN protocols for its family of devices, but some of these sensors' IDs and data/units have been cracked, and we can read them. Haltech does support OBD-II based CAN, but because only their higher-end ECUs like the Elite 2500 have 2 ports, this leaves lesser models like the 750s and similar stranded if they need their single port for something like a wideband O2 sensor module. Furthermore, OBD-II is limited in it's status reporting and Haltech's list of supported sensors is fairly small at the moment, though it does provide a majority of the important ones. 
-
-This project seeks to enable reading of this proprietary set of standards, and allow the end-user to display this data very inexpensively in a highly readable, rapid manner. Further development will seek to expand the CANbus to the OBD-II port and support industry standard reporting so that devices like the ELM327 (common bluetooth/wifi OBDII readers) can read statuses just like any other vehicle.
-
-The program is built on ATmega328 platform, mainly the Arduino Nano, though it should work without any port work with the Uno as well. The code is optimized for extremely fast display updating over hardware SPI, utilizing a codeblock to breakout numbers into indidivual digits, then compare these digits to the last digits recorded for a given CAN reading, to only update characters that change from one loop to the next. 
-
-Up to 8 SSD1306 128x64pixel OLED displays are supported (Nano; 6 for Uno), with their Chip Select (CS) pins being the 8 analog pins, A0 - A7. 
-
-## Uploading Binaries (.hex)
-I'm keeping the source code private for now for various reasons, so you will be flashing the releases as a pre-compiled binary directly onto the device. The easiest way to do this is Xloader. (https://github.com/binaryupdates/xLoader)
-
-![image](https://github.com/treyus30/HT-101CBR/assets/136277393/461253f2-5f9f-4130-843d-aaec86dda0bb)
-
-Save the zip file somewhere accessible, run Xloader.exe, and select the correct device and Hex file. 
-
-![image](https://github.com/treyus30/HT-101CBR/assets/136277393/adf06e8c-4121-4211-802e-b4623bbf302f)
-
-Make sure your Arduino is plugged in, and COM port is known and set. Then click Upload. 
-
-## Parts & Pre-requisites
-
-**Required:**
-- 1x Arduino Nano or Uno (authentic or clone).
-  - Note that the Uno is missing Pins A6 and A7, so is limited to 6 displays.
-- 1 to 8x SSD1306 monochrome **SPI** 128x64 OLED displays.
-  - These must be 7-pin SPI displays, _not_ 4-pin I2C version.**
-- 1x MCP2515 CAN Transceiver Module (make sure this is the full board, as pictured below).
-- Ability to solder
-- PC & USB cable
-  - Many clones will come with relevant cables. USB-C has also been seen popping up. As long as you can connect to a PC you're fine.  
-  
-**Recommended:**
-- DTM06-4S (female) connector set (for connecting directly into Haltech CAN port). You can find knockoff kits for reasonable prices on Amazon.
-- Arduino IDE (or some other way of transmitting commands to Arduino Serial)
-
-![image](https://github.com/treyus30/HT-101CBR/assets/136277393/64dd7140-89de-436d-ac0f-f3dddb5633d8) 
-
-
-
-## Example Wiring (Free/Legacy Version)
-![image](https://github.com/treyus30/HT-101CBR/assets/136277393/f193cb99-d602-4b6f-9f1d-fdcd29ef7cde)
-
-![image](https://github.com/treyus30/HT-101CBR/assets/136277393/7e3e6e5f-cf13-4c77-99e8-f6e3c9581b88)
-
-*Word of caution: SPI is an unbalanced protocol (not differential pair). Keep SPI CLK and DATA wires, especially, away from stray capacitance and other wires. 
-
-## Supported Sensors
-The following is what is currently available in up to version 0.16. If you wish to have access to ALL 250+ sensors that are Haltech-supported, please refer to "Announcement 3-18-2024". 
-- Engine RPM
-- MAP
-- TPS
-- Fuel Pressure
-- Oil Pressure
-- Injector Duty Cycles
-- Ignition Angles
-- Lambdas
-- Miss, Trigger, and Home Counter
-- Vehicle Speed
-- Gear
-- Intake Cam Angles
-- Battery Voltage
-- Target Boost
-- Barometer
-- CTS
-- IAT
-- Fuel Temp
-- Oil Temp
-- Fuel Consumption (/hr)
-- Avg Fuel Economy (/hr)
-
-# Proof of Concept
-https://www.youtube.com/watch?v=qoIh3fBZvfI
-
-**See "MANUAL....xlsx" file in repository for user commands, and to change default sensors and units.** 
 
 ---
 
