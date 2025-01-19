@@ -128,5 +128,4 @@ Work has progressed slowly, as this is one of many facets of my life, but I have
 ---
 
 ## License
-This work is licensed under a `Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License`.
-This work is free to redistribute for personal, non-commercial use. Any modifications performed are not licensed for redistribution. 
+See License file.
