@@ -1,7 +1,4 @@
-# HT-101CBR (Lite Version)
-For Full Version that supports all sensors and up to 32 displays through efficient memory management, click here (donationware): https://github.com/T-Carpenter-Enterpises/HT-101CBR_Full-Access. (coming soon)
-
-A Deluxe Version is a long-term goal that will enable J1979 OBDII PID reporting, including emissions readiness emulation, and analog/digial _Inputs_ on the CAN rail back into the Haltech ECU. 
+# HT-101CBR
 
 ## Overview/Summary
 **The Goal: Build the absolute lowest-cost Haltech Elite display possible with as many sensor options as possible.** 
